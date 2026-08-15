@@ -2,6 +2,13 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
+# Health Check Route - Jenkins Test साठी
+@app.route("/health")
+def health():
+    return "OK", 200
+
+
 @app.route("/")
 def home():
     return """
@@ -190,19 +197,28 @@ def home():
             <div class="card">
                 <div class="icon">🧾</div>
                 <h3>Invoices</h3>
-                <p>Create and manage professional invoices for your customers.</p>
+                <p>
+                    Create and manage professional invoices
+                    for your customers.
+                </p>
             </div>
 
             <div class="card">
                 <div class="icon">📋</div>
                 <h3>Quotations</h3>
-                <p>Create quotations and share them with your customers.</p>
+                <p>
+                    Create quotations and share them
+                    with your customers.
+                </p>
             </div>
 
             <div class="card">
                 <div class="icon">📊</div>
                 <h3>Reports</h3>
-                <p>View and manage your invoice and quotation records.</p>
+                <p>
+                    View and manage your invoice and
+                    quotation records.
+                </p>
             </div>
 
         </div>
@@ -212,6 +228,7 @@ def home():
             <h2>Quick Actions</h2>
 
             <div class="buttons">
+
                 <button class="invoice">
                     ➕ Create Invoice
                 </button>
@@ -223,6 +240,7 @@ def home():
                 <button class="reports">
                     📊 View Reports
                 </button>
+
             </div>
 
         </div>
@@ -236,6 +254,7 @@ def home():
 </body>
 </html>
 """
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
